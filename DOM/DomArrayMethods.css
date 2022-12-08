@@ -1,0 +1,80 @@
+*{
+    box-sizing: border-box;
+}
+
+body {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  background-color: rgb(221, 190, 205);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+
+.container {
+ display: flex;
+ padding: 20px;
+ margin: 0 auto;
+ max-width: 100%;
+ width: 800px;
+}
+
+aside {
+    padding: 10px 20px;
+    width: 250px;
+    border-right: 1px solid #111;
+}
+
+button {
+   cursor: pointer;
+   margin: 10px;
+   padding: 5px 5px;
+   border-radius: 5px;
+   display: block;
+   width: 200px;
+   background-color: #fff;
+   font-size: 12px;
+   font-weight: bold;
+   
+}
+
+
+main {
+    flex: 1; /* shorthand for flex-grow, flex-shrink, flex-basis -- 
+    default is 0 1 auto;*/
+    /* If all items have flex-grow set to 1, the remaining space
+     in the container will be distributed equally to all children */
+    padding: 10px 20px;
+}
+
+h2 {
+    border-bottom: 1px solid #111;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 300;
+    margin: 0 0 20px;
+}
+
+/* for DOM*/
+
+h3 { 
+    background-color: #fff;
+    border-bottom: 1px solid #111;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 300;
+    margin: 20px 0 0;
+}
+
+
+.person { 
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
