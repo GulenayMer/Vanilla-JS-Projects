@@ -2,19 +2,13 @@
 // choose seats and calculate the number of seats id = count
 // seats are choosen needs to change color to .seat selected 
 
-// ------------------------ Variables --------------------//
 
 // will grab all the seats on the row that are not occupied
 const seats = document.querySelectorAll(".row .seat:not(.occupied)");
-// const secondContainer = document.querySelector(".second-container");
-
-// seat counting
 const seatCount = document.querySelector("#count");
-// movie price
 const movieSelect = document.getElementById("movie");
 // + sign makes it number or parseInt()
 let ticketPrice = +movieSelect.value;
-// total price
 const total = document.querySelector("#total");
 
 populateUI();
@@ -24,7 +18,6 @@ totalSeatsPrice();
 
 // add total price and seat numbers
 function totalSeatsPrice(){
-    // selected seats 
     const seatSelected = document.querySelectorAll(".row .seat.selected");
 
 // here comes local storage for the seats selected: [...seatSelected] will convert the node lists into an array
@@ -36,16 +29,12 @@ function totalSeatsPrice(){
  // Saving as an array with JSON.stringfy into the local storage
      localStorage.setItem("seatSelected", JSON.stringify(seatsIndex));
 
- //
-
     const selectedSeatsCount = seatSelected.length;
     seatCount.textContent = selectedSeatsCount; // or innerText
     // total price
     const totalPrice = ticketPrice * selectedSeatsCount;
     total.textContent = totalPrice;
 };
-
-
 
 // local stroge function for movie and price 
 function setMovieData(movieIndex, moviePrice){
@@ -77,29 +66,21 @@ localStorage.setItem("selectedMoviePrice", moviePrice);
      };
 
 
-
-// ---------------------- Event Listeners -------------------------- //
-
-// Seat click event
-// need to loop through as we have many seats
 seats.forEach(function(seatItem){
     seatItem.addEventListener("click", function(e){
         if(e.target.classList.contains("seat") && !e.target.classList.contains("seat occupied")){
             // toggle adds and removes the class (add or remove could be used too)
             e.target.classList.toggle("selected");
-            
-            // 
             totalSeatsPrice();
         }
     })
 });
 
-// Movie click event
+
 // The change event is fired for <input>, <select>, and <textarea> elements
 movieSelect.addEventListener("change", function(e){
     ticketPrice = +e.target.value;
     totalSeatsPrice();
-
     // to save the price and movie selected into the local storage
     setMovieData(e.target.selectedIndex, e.target.value);
 });
@@ -111,7 +92,6 @@ movieSelect.addEventListener("change", function(e){
         //         e.target.classList.toggle("selected");
         //     }
         // });
-
 
 
 // --------------------------- Local Storage and UI -------------------------//
@@ -145,8 +125,6 @@ movieSelect.addEventListener("change", function(e){
 //  };
 
 // };
-
-
 
 // in the function : 
  // how to store the seats selected to the local storage so that when we reload the page data does not be lost
