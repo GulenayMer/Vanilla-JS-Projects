@@ -53,7 +53,7 @@ function drawBall()
 	ctx.beginPath(); // creates a new path
 	//ctx.arc(75, 75, 50, 0, Math.PI * 2, true); // draws a circle
 	ctx.arc(ball.x, ball.y, ball.size, 0, Math.PI * 2);
-	ctx.fillStyle = '#0095dd';
+	ctx.fillStyle = '#50c2b9';
 	ctx.fill();
 	ctx.closePath();
 }
@@ -63,7 +63,7 @@ function drawPaddle()
 {
 	ctx.beginPath(); // creates a new path
 	ctx.rect(paddle.x, paddle.y, paddle.width, paddle.height);
-	ctx.fillStyle = '#0095dd';
+	ctx.fillStyle = '#50c2b9';
 	ctx.fill();
 	ctx.closePath();
 }
@@ -95,7 +95,7 @@ function drawBricks()
 		column.forEach(brick => {
 			ctx.beginPath();
 			ctx.rect(brick.x, brick.y, brick.width, brick.height);
-			ctx.fillStyle = brick.visible ? '#0095dd' : 'transparent';
+			ctx.fillStyle = brick.visible ? '#50c2b9' : 'transparent';
 			ctx.fill();
 			ctx.closePath();
 		})
@@ -118,6 +118,76 @@ function movePaddle()
 	}
 
 }
+
+function showAllBricks()
+{
+	bricks.forEach(column => {
+		column.forEach(brick => {
+			brick.visible = true;
+		});
+	});
+}
+
+
+function increaseScore()
+{
+	score += 1;
+
+	if (score % (brickRowCount * brickRowCount) === 0)
+	{
+		showAllBricks();
+	}
+}
+
+function moveBall()
+{
+	/* direction */
+	ball.x += ball.dx;
+	ball.y += ball.dy;
+
+	/* right & left wall collision */
+	if (ball.x + ball.size > canvas.width || ball.x - ball.size < 0)
+		ball.dx *= -1;
+	/* top & bottom wall collision */
+	if (ball.y + ball.size > canvas.height || ball.y - ball.size < 0)
+		ball.dy *= -1;
+	
+	// console.log(ball.x, ball.y);
+
+/* 	paddle collision */
+	if (ball.x - ball.size > paddle.x 
+		&& ball.x + ball.size < paddle.x + paddle.width
+		&& ball.y + ball.size > paddle.y)
+	{
+		ball.dy = -ball.speed;
+	}
+
+	/* bricks collision */
+	bricks.forEach(column => {
+		column.forEach(brick => {
+			if (brick.visible)
+			{
+				if (ball.x - ball.size > brick.x // left side of the brick
+					&& ball.x + ball.size < brick.x + brick.width // right side of the brick
+					&& ball.y + ball.size > brick.y // top side of the brick
+					&& ball.y - ball.size < brick.y + brick.height) // bottom side of the brick
+				{
+					ball.dy *= -1;
+					brick.visible = false;
+					increaseScore();
+				}
+			}
+		});
+	});
+
+	/* hit bottom but not the paddle, then reset */
+	if (ball.y + ball.size > canvas.height)
+	{
+		showAllBricks();
+		score = 0;
+	}
+}
+
 
 function drawAll()
 {
@@ -159,7 +229,7 @@ document.addEventListener('keyup', keyUp);
 function update()
 {
 	movePaddle();
-	//moveBall();
+	moveBall();
 
 	drawAll();
 
