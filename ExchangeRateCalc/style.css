@@ -1,80 +1,103 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@1,300&display=swap');
 
+*
+{
+	box-sizing: border-box;
+}
 
 body{
   font-family: 'Source Sans Pro', sans-serif;
+  background-color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  margin: 0;
   padding: 20px;
-  
 }
 
-
-h2{
-    color:rgb(64, 153, 64);
-  
+h2
+{
+	color:#2aba79; 
+	margin-top: 0;
 }
 
+p
+{
+	text-align: center;;
+}
 
-.btn {
-    background-color: rgb(64, 153, 64);
-    color: #fff;
+.btn 
+{
+    background-color: #409940;
+    color: #e4dddd;
     cursor: pointer;
     border-radius: 5px;
     border: 0;
-    padding: 3px 7px;
-    font-size: 12px;
-
+    padding: 10px 23px;
 }
 
-img{
-  width: 200px;
+.image
+{
+  width:200px;
 }
 
-.currency {
+
+.currency 
+{
   padding: 40px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.currency select{
-  padding: 10px 20px 10px 10px;
+.currency select
+{
+  padding: 10px 20px;
+/*   default appearance : */
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
   border: 1px solid #dedede;
   font-size: 16px;
+  color: #f2f6f5;
+  background-color: #232323;
+  cursor: pointer;
 }
 
-.currency input{
+.currency input
+{
   border: 0;
   background: transparent;
   font-size: 30px;
   text-align: right;
 }
 
-.swap-rate-container{
+select:focus, input:focus, button:focus
+{
+	outline: 0;
+}
+
+/* dynamic */
+.swap-rate-container
+{
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.rate {
-  color: rgb(64, 153, 64);
-  font-size: 14px;
+.rate
+{
+  color: #334533;
+  font-size: 16px;
   padding: 0 10px;
 }
 
-select:focus, input:focus, button:focus{
-  outline: 0;
-}
-
-@media(max-width: 600px){
-  .currency input{
+@media(max-width: 600px)
+{
+  .currency input
+  {
     width: 200px;
   }
 }
