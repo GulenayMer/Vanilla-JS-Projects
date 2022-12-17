@@ -53,12 +53,9 @@ function generateID()
 	return Math.floor(Math.random() * 100);
 }
 
-
-
 /* add transactions to dom list */
 function addTransactionDOM(transaction)
 {
-	// get sign
 	const sign = transaction.amount > 0 ? '+' : '-'; 
 	const item = document.createElement('li');
 

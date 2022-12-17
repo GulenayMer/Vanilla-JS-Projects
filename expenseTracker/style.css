@@ -1,10 +1,9 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Chivo+Mono&family=Montserrat&family=Roboto&display=swap');
 
 :root
 {
 	--box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
-
 
 * 
 {
@@ -13,7 +12,8 @@
 
 body
 {
-	background-color: #f7f7f7;
+	background-color: #86ab82;
+    font-family: 'Chivo Mono', monospace;	
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -24,13 +24,22 @@ body
 
 .container
 {
-	margin: 30px auto;
+	margin: 50px auto;
 	width: 350px;
 }
 
 h1
 {
 	letter-spacing: 1px;
+}
+
+.main-title
+{
+	color: #fff;
+}
+
+.balance
+{
 	margin: 0;
 }
 
@@ -49,7 +58,7 @@ h4
 
 .inc-exp-container
 {
-	background-color: #fff;
+	background-color: #b7d7cd;
 	box-shadow: var(--box-shadow);
 	padding: 20px;
 	display: flex;
@@ -65,7 +74,7 @@ h4
 
 .inc-exp-container > div:first-of-type
 {
-	border-right: 1px solid #dedede;
+	border-right: 1px solid #a3a3a3;
 }
 
 .money
@@ -77,18 +86,20 @@ h4
 
 .money.plus
 {
-	color: #2ecc71;
+	color: #3d9060;
+	font-weight: 700;
 }
 
 .money.minus
 {
 	color: #c0392b;
+	font-weight: 700;
 }
 
 label
 {
-	display: inline-block;
-	margin: 10px 0;
+ display: inline-block;
+ margin: 10px 0;
 }
 
 input[type='text'], 
@@ -104,7 +115,7 @@ input[type='number']
 
 .btn
 {
-	background-color: #9c88ff;
+	background-color: #161517;
 	box-shadow: var(--box-shadow);
 	color: #fff;
 	border: 0;
