@@ -2,47 +2,52 @@
 @import url('https://fonts.googleapis.com/css2?family=Padauk&display=swap');
 
 
-/* box-sizing: allows us to include the padding and border in an element's total width and height  */
-    
+/* box-sizing: allows us to include the padding and border in an element's total width and height  */ 
 * {
   box-sizing: border-box;  
 }
 
 body {
-    background-color: rgb(45, 60, 105);
+    background-color: #5e74b7;
     font-family: 'Padauk', sans-serif;
     color: white;
     text-align: center;
-    /* overflow: hidden; */
+    overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 60vh;
+}
+
+h1
+{
+	margin: 60px 0 0;
 }
 
 
-/* line styling*/
 .figure-container {
    fill: transparent;
    stroke: #fff;
-   stroke-width: 3px;
+   stroke-width: 4px;
    stroke-linecap: round;
-
 }
 
-/* the class figure-part, will be hidden, only will be displayed when we enter a wrong letter--> */
 .figure-part {
     display: none;
 }
 
-/* the whole div container which contains the hangman, the letters, the words */
-.game-container {
-    padding: 20px 20px;
-    position: relative;
-    margin: auto;
+.game-container 
+{
+	position: relative;
     height: 350px;
     width: 450px;
+    margin: auto;
+    padding: 20px 20px;
 }
 
-
-/* wrong-letters styling*/
-.wrong-letters-container {
+.wrong-letters-container 
+{
     position: absolute;
     top: 30px;
     right: 30px;
@@ -51,52 +56,66 @@ body {
     text-align: right;
 }
 
+.wrong-letters-container p
+{
+	margin: 0 0 5px;
+	font-size: 18px;
+}
 
+.wrong-letters-container span
+{
+	font-size: 24px;
+}
 
-/* words styling */
-.word {
+.word 
+{
    display: flex;
    position: absolute;
    bottom: 10px;
    left: 50%;
-   transform: translateX(-50);
-
+   transform: translateX(-50%);
 }
 
-.letter {
-  display: inline-flex;
-  margin: 0 3px;
+.letter
+{
   border-bottom: 3px solid #fff;
+  margin: 0 3px;
   height: 50px;
   width: 20px;
- font-size: 30px;
- align-items: center;
- justify-content: center;
+  font-size: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 
-.popup-container{
+.popup-container
+{
+	background-color: rgba(0, 0, 0, 0.3);
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    /* display: flex; */
+	/* display: flex; */
+	display: none;
     justify-content: center;
     align-items: center;
-  display: none;    
 }
 
-.popup {
+.popup 
+{
     border: 1px solid #fff;
     border-radius: 4px;
     box-shadow: 0 15px 10px 3px rgba(0, 0, 0, 0.1);
-    background-color: rgb(151, 151, 250);
-    padding: 20px 20px;
+    background-color: #1e1e26;
+    padding: 80px;
+	text-align: center;
 }
 
-.popup button {
-  color: rgb(140, 140, 179);
+.popup button
+{
+  color: #0d0d10;
   border-radius: 4px;
   padding: 10px 10px;
   cursor: pointer;
@@ -104,21 +123,20 @@ body {
   border: 0;
   margin-top: 10px;
   font-size: 16px;
-
 }
 
-/* a link/button becomes active when we click on it -- */
-/* active selector styles when the button active is */
-.popup button:active {
+.popup button:active 
+{
     transform: scale(0.98);
 }
 
-
-.popup button:focus {
+.popup button:focus 
+{
     outline: 0;
 }
 
-.notification-container {
+.notification-container 
+{
    background-color: rgb(0, 0, 0, 0.3); 
    padding: 10px 20px;
    border-radius: 10px 10px 0 0;
@@ -129,13 +147,13 @@ body {
 
 }
 
-.notification-container p {
+.notification-container p 
+{
     margin: 0;
 }
 
 /* pseudo class */
-.notification-container.show {
+.notification-container.show
+{
    transform: translateY(-50px);
 }
-
-
